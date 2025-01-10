@@ -1,17 +1,17 @@
-package br.com.giulianabezerra.messagingspringboot;
+package br.com.diego.poc;
 
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
-public class HelloProducer {
+public class LocationProducer {
   private final KafkaTemplate<String, String> kafkaTemplate;
 
-  public HelloProducer(KafkaTemplate<String, String> kafkaTemplate) {
+  public LocationProducer(KafkaTemplate<String, String> kafkaTemplate) {
     this.kafkaTemplate = kafkaTemplate;
   }
 
   public void sendMessage(String message) {
-    kafkaTemplate.send("hello-topic", message);
+    kafkaTemplate.send("intercab.squad.locationref.topic.internal.any.v1", message);
   }
 }

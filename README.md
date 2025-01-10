@@ -1,15 +1,10 @@
 <h1 align="center">
-  Messaging Spring Boot
+  Location Master Poc Kafka
 </h1>
 
-<p align="center">
- <img src="https://img.shields.io/static/v1?label=Youtube&message=@giulianabezerra&color=8257E5&labelColor=000000" alt="@giulianabezerra" />
- <img src="https://img.shields.io/static/v1?label=Tipo&message=Demo&color=8257E5&labelColor=000000" alt="Demo" />
-</p>
+System Location Master
 
-Sistema para introduzir o conceito de mensageria apresentado [nesse vídeo](https://youtu.be/97TF2xZgAhU) utilizando Spring Boot e Kafka.
-
-## Tecnologias
+## technologies
  
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Spring MVC](https://docs.spring.io/spring-framework/reference/web/webmvc.html)
@@ -19,37 +14,26 @@ Sistema para introduzir o conceito de mensageria apresentado [nesse vídeo](http
 
 ## Como Executar
 
-- Rodar o Kafka com o Docker Compose:
+- Exec  Kafka with  Docker Compose:
 ```
 $ docker-compose up
 ```
 
-- Adicionar /etc/hosts o hostname `kafka`.
-- Clonar repositório git
-- Construir o projeto:
+- Add /etc/hosts the hostname `kafka`.
 ```
 $ ./mvnw clean package
 ```
-- Executar a aplicação:
-```
-$ java -jar target/messaging-springboot-0.0.1-SNAPSHOT.jar
-```
+- Run application:
 
-- Enviar um hello
+- Send a  hello
 ```
-$ http :8080/kafka/hello/giu
-
-HTTP/1.1 200
-Connection: keep-alive
-Content-Length: 2
-Content-Type: text/plain;charset=UTF-8
-Date: Wed, 05 Jul 2023 16:21:05 GMT
-Keep-Alive: timeout=60
+$ GET http://localhost:8080/location-master/kafka/diego
+```
 
 OK
 ```
 
-- Visualizar mensagem recebida no log:
+- View received messages in the log:
 ```
-Consumer Message: Olá, giu
+Consumer Message: hello, diego
 ```
