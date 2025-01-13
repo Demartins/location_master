@@ -16,15 +16,18 @@ public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String bdas;
     private String name;
     private String locationId;
     private String status;
     private String bdaType;
-    private String country;
+
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private Country country;
+
     private String geoType;
     private LocalDate validTo;
-    private String huluName;
+    private String hsudName;
     private BigDecimal latitude;
     private Boolean portFlag;
     private String timeZone;
@@ -33,7 +36,7 @@ public class Location {
     private Boolean restricted;
     private String description;
     private String dialingCode;
-    private Boolean isDuskCity;
+    private Boolean isMaerskCity;
     private String olsonTimezone;
     private Integer utcOffsetMinutes;
     private String workaroundReason;
@@ -49,10 +52,18 @@ public class Location {
     private List<Parent> parents;
 
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
-    private List<BdaLocation> bdaLocations;
+    private List<BdaLocation> bdas;
 
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
     private List<LocationAlternateCode> alternateCodes;
 
-    // Getters and Setters
+    @Override
+    public String toString() {
+        return "Location{" +
+                ", name='" + name + '\'' +
+                ", locationId='" + locationId + '\'' +
+                ", status='" +status+ '\'' +
+                ", bdaType='" + bdaType + '\'' +
+                '}';
+    }
 }
