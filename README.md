@@ -37,3 +37,8 @@ OK
 ```
 Consumer Message: hello, diego
 ```
+
+- Grafana
+```
+Acess  Grafana in http://localhost:3000 (user: admin, password: admin).
+```
