@@ -1,0 +1,24 @@
+edgemicro:
+  port: 8000
+  max_connections: 1000
+  logging:
+    level: info
+    dir: /var/tmp
+    stats_log_interval: 60
+  plugins:
+    sequence:
+      - oauth
+      - quota
+      - spikeArrest
+      - cors
+      - analytics
+proxies:
+  - base_path: /location-master
+    secure: false
+    url: "http://localhost:8080"  # Ensure this is a string
+
+edge_config:
+  synchronizerMode: 1
+  bootstrap: true
+  jwt_public_key: "my-public-key"
+  # Add other necessary configurations here
