@@ -20,11 +20,6 @@ public class Location {
     private String locationId;
     private String status;
     private String bdaType;
-
-    @ManyToOne
-    @JoinColumn(name = "country_id")
-    private Country country;
-
     private String geoType;
     private LocalDate validTo;
     private String hsudName;
@@ -47,6 +42,10 @@ public class Location {
     private String dialingCodeDescription;
     private Boolean stateProvinceMandatory;
     private Integer daylightSavingShiftMinutes;
+
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private Country country;
 
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
     private List<Parent> parents;
