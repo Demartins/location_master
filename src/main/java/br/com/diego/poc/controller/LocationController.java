@@ -15,11 +15,12 @@ class LocationController {
     private static final Logger logger = LoggerFactory.getLogger(LocationController.class);
 
     @Autowired
-    private Producer service;
+    private Producer producerService;
+
 
     @GetMapping("/kafka/{name}")
     public String hello(@PathVariable("name") String name) {
-        service.sendMessage("hello, " + name);
+        producerService.sendMessage("hello, " + name);
         return "OK";
     }
     @Autowired
@@ -28,7 +29,7 @@ class LocationController {
     @PostMapping("/save")
     public Location saveLocation(@RequestBody Location location) {
         logger.info("Sending message with location: {}", location.toString());
-        service.sendMessage("send message location"+ location.toString());
+        producerService.sendMessage("send message location"+ location.toString());
         return locationService.saveLocation(location);
     }
 }

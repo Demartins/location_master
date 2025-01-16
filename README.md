@@ -1,5 +1,5 @@
 <h1 align="center">
-  Location Master Poc Kafka
+  Location Master Poc 
 </h1>
 
 System Location Master POC. 
@@ -16,13 +16,16 @@ The location-master project is a Spring Boot application that uses Kafka to send
 - [Docker Compose](https://docs.docker.com/compose/)
 - [Grafana http://localhost:3000/dashboards](http://localhost:3000/dashboards)
 - [Unit Test JUnit ](https://kafka.apache.org)
+- [SonarQube ](http://localhost:9000/projects)
 - [Azure Pipelines](https://kafka.apache.org)
-- [APIGEE API-GATEWAY](...)
+- [APIGEE API-GATEWAY, Microgateway local](...)
 ## How to Run
 
 - Exec  Kafka with  Docker Compose:
 ```
 $ docker-compose up
+or
+$ podman-compose up
 ```
 
 - Add /etc/hosts the hostname `kafka`.
@@ -64,3 +67,8 @@ Using pgAdmin or DBeaver tool to view the data in the location_master database.
 ```
 Access  Grafana in http://localhost:3000 (user: admin, password: admin).
 ```
+
+- SonarQube
+```
+Access SonarQube in http://localhost:9000/projects
+
