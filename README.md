@@ -72,3 +72,7 @@ Access  Grafana in http://localhost:3000 (user: admin, password: admin).
 ```
 Access SonarQube in http://localhost:9000/projects
 
+- OpenAPi
+``` Generate OpenApi documentation
+  mvn clean generate-sources
+- 
