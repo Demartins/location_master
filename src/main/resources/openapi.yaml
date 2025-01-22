@@ -1,0 +1,43 @@
+openapi: 3.0.1
+info:
+  title: Location Master API
+  description: API Documentation
+  version: 1.0.0
+paths:
+  /location-master/kafka/{name}:
+    get:
+      operationId: sendMessageToKafka
+      summary: Send a message to Kafka
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+  /location-master/save:
+    post:
+      operationId: saveLocation
+      summary: Save a location
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationSaveRequest'
+      responses:
+        '200':
+          description: Location saved
+components:
+  schemas:
+    LocationSaveRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
